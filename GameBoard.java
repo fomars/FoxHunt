@@ -1,11 +1,11 @@
 
-class GameField {
+class GameBoard {
 	private static byte BOMB = 99; //'99' stands for a BOMB as we are not going to exceed 98 bombs count in any cell
 	private byte bombsNum;
 	private byte[][] board;
 	private byte width;
 
-	public GameField(byte width, Difficulty difficulty){
+	public GameBoard(byte width, Difficulty difficulty){
 		this.width = width;		
 		this.resolve_Difficulty(difficulty); //Setting the number of bombs considering difficulty
 		this.board = new byte[width][width]; //Creating a board
@@ -90,8 +90,12 @@ class GameField {
 		return bombsNum;
 	}
 	
-	public void setBombsNum(byte bombsNum) {
+	private void setBombsNum(byte bombsNum) {
 		this.bombsNum = bombsNum;
+	}
+	
+	public byte getWidth(){
+		return width;
 	}
 	
 	/**
@@ -100,7 +104,7 @@ class GameField {
 	public static void main(String[] args) {
 
 		final byte WIDTH = 8;		
-		GameField  field = new GameField(WIDTH, Difficulty.EASY);
+		GameBoard  field = new GameBoard(WIDTH, Difficulty.EASY);
 		byte[][] board = field.getBoard();
 		for (byte[] row : board){
 			for (byte cell : row){
@@ -112,7 +116,7 @@ class GameField {
 		
 	}
 
-	private byte[][] getBoard() {
+	byte[][] getBoard() {
 		
 		return this.board;
 	}
