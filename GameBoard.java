@@ -40,8 +40,10 @@ class GameBoard {
 				if (this.board[row][col] != BOMB){
 					this.board[row][col] = BOMB;
 					bombIsSet = true;
+					updateCells(row, col);
+					System.out.print("\n"+row+", "+col);
+					this.printBoard();
 				}
-				updateCells(row, col);
 			}			
 		}
 	}
@@ -98,14 +100,8 @@ class GameBoard {
 		return width;
 	}
 	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-
-		final byte WIDTH = 8;		
-		GameBoard  field = new GameBoard(WIDTH, Difficulty.EASY);
-		byte[][] board = field.getBoard();
+	public void printBoard(){
+		System.out.print("\n");
 		for (byte[] row : board){
 			for (byte cell : row){
 				System.out.print(cell);
@@ -113,7 +109,15 @@ class GameBoard {
 			}
 			System.out.print("\n");
 		}
-		
+	}
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+		final byte WIDTH = 8;		
+		GameBoard  field = new GameBoard(WIDTH, Difficulty.EASY);
+		field.printBoard();
 	}
 
 	byte[][] getBoard() {

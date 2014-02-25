@@ -4,7 +4,7 @@ import org.junit.Test;
 
 
 public class GameFieldTest {
-	private static int NUM_OF_CHECKS = 5;
+	private static int NUM_OF_CHECKS = 10;
 	private static byte WIDTH = 10;
 	private static byte BOMB = 99;
 	@Test
