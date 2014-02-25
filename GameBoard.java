@@ -41,8 +41,8 @@ class GameBoard {
 					this.board[row][col] = BOMB;
 					bombIsSet = true;
 					updateCells(row, col);
-					System.out.print("\n"+row+", "+col);
-					this.printBoard();
+					//System.out.print("\n"+row+", "+col);
+					//this.printBoard();
 				}
 			}			
 		}
@@ -124,5 +124,4 @@ class GameBoard {
 		
 		return this.board;
 	}
-
 }
